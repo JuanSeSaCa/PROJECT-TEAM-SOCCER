@@ -21,3 +21,13 @@ while isAddTeam:
     print(equipos)
     federacion.update({str(len(federacion)).zfill(4):equipos})
 print(json.dumps(federacion,indent=4))
+
+Grup1={}
+Grup2={}
+for key,valor in federacion.items:
+    if key <=3 :
+        Grup1.update(federacion)
+    if key >=4:
+        Grup2.update(federacion)
+print(Grup1)
+print(Grup2)
