@@ -3,31 +3,83 @@ import json
 
 federacion ={}
 #Update a Agregar o Modificar infomacion en el diccionario
-isAddTeam=True
-while isAddTeam:
-    os.system(('clear'))
-    nombre=input("Ingrese el nombre del equipo: ")
-    equipos={
-        "nombre" : nombre,
-        "PJ" :0 ,
-        "PP":0,
-        "PE" :0,
-        "PG" :0,
-        "GF" :0,
-        "GC" :0,
-        "PT":0
-    }
-    isAddTeam = bool(input("Desea continuar agregando mas equipos S(Si) o enter(No)"))
-    print(equipos)
-    federacion.update({str(len(federacion)).zfill(4):equipos})
-print(json.dumps(federacion,indent=4))
+grupo = {
+    "A" : [],
+    "B" : []
+}
+titulo=""""
+    +++++++++++++++++++++++++++++
+    + MENU OPCIONES OUG MONTIEL +
+    +++++++++++++++++++++++++++++
+"""
+opciones="1. Aregar Equipo \n2. Hacer grupos\n3. tabla\n4. Salir"
+isActivate=True
+campers=[]
+while isActivate:
+    os.system('clear')
+        
+    print(titulo)
+    print(opciones)
 
-Grup1={}
-Grup2={}
-for key,valor in federacion.items:
-    if key <=3 :
-        Grup1.update(federacion)
-    if key >=4:
-        Grup2.update(federacion)
-print(Grup1)
-print(Grup2)
+    OP=int(input('>>'))
+    if (OP==1):
+        nombre=input("Ingrese el nombre del equipo: ")
+        equipos={
+            "nombre" : nombre,
+            "PJ":0 ,
+            "PP":0,
+            "PE":0,
+            "PG":0,
+            "GF":0,
+            "GC":0,
+            "PT":0,
+            "Asig":0
+        }
+        isAddTeam = bool(input("Desea continuar agregando mas equipos S(Si) o enter(No)"))
+        print(equipos)
+        federacion.update({str(len(federacion)).zfill(4):equipos})
+    
+    if (OP==2):
+        for key, valor in federacion.items():
+            if valor["Asig"]==0:
+                print("Selecciones el grupo al que Quiere ingrese el equipo")
+                ls=0
+                for key2 in grupo:
+                    ls+=1
+                    print(f"{ls}. Grupo {key2}")
+    if (OP==4):
+        isActivate=False
+    else :
+        pass
+
+
+# isAddTeam=True
+# while isAddTeam:
+#     os.system(('clear'))
+#     nombre=input("Ingrese el nombre del equipo: ")
+#     equipos={
+#         "nombre" : nombre,
+#         "PJ":0 ,
+#         "PP":0,
+#         "PE":0,
+#         "PG":0,
+#         "GF":0,
+#         "GC":0,
+#         "PT":0,
+#         "Asig":0
+#     }
+#     isAddTeam = bool(input("Desea continuar agregando mas equipos S(Si) o enter(No)"))
+#     print(equipos)
+#     federacion.update({str(len(federacion)).zfill(4):equipos})
+# print(json.dumps(federacion,indent=4))
+# ################################
+        
+# Grup1={}
+# Grup2={}
+# for key,valor in federacion.items():
+#     if key <=3 :
+#         Grup1.update(federacion)
+#     if key >=4:
+#         Grup2.update(federacion)
+# print(Grup1)
+# print(Grup2)
