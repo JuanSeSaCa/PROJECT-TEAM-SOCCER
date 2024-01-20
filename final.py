@@ -102,26 +102,26 @@ while isActivate:
         print(team)
     elif OP==3: #tournament report
         Tem=team[0][6]
-        Equi=team[0][2]
+        Equi=team[0][1]
         
         for i, item in enumerate(team):
             if item[6] >Tem:
                 Tem=item[6]
-                Equi=item[0]
+                Equi=item[1]
         print(f"Nombre del equipo que mas goles anoto es: {Equi}")
                
         Tem=team[0][8]
         for i, item in enumerate(team):
             if item[8] >Tem:
                 Tem=item[8]
-                Equi=item[0]
+                Equi=item[1]
         print(f"Nombre del equipo que mas puntos anoto es: {Equi} ")
-
+   
         Tem=team[0][3]
         for i, item in enumerate(team):
             if item[3] >Tem:
                 Tem=item[3]
-                Equi=item[0]
+                Equi=item[1]
         print(f"nombre del equipo que mas Partidos Gano es: {Equi}")
         
         
