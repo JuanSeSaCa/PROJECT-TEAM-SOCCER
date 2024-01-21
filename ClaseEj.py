@@ -1,30 +1,30 @@
 import os
 import json
 
-federacion ={}
-
+federacion ={} #Update a Agregar o Modificar infomacion en el diccionario
+campers=[]
 grupos = {
     "A": [],
     "B": []
 }
 
-menu = ("1.Agregar equipo","2.Crear grupos","3.Ver grupo","4.Salir")
-#Equipo PJ PP PE PG GF GC
-#update o Agregar o Modificar informacion en el diccionario
-isAddTeam = True
-isActive = True
-mensaje = """
-    ++++++++++++++++++++++++++++++++++
-    + TORNEO BETPLAY - COLOMBIA 2024 +
-    ++++++++++++++++++++++++++++++++++
+titulo=""""
+    +++++++++++++++++++++++++++++
+    + MENU OPCIONES OUG MONTIEL +
+    +++++++++++++++++++++++++++++
 """
-while isActive :
-    os.system('cls')
-    print(mensaje)
-    for item in menu:
-        print(item)
-    op = int(input(":)_"))
-    if (op == 1):
+
+opciones="1. Aregar Equipo \n2. Hacer grupos\n3. tabla\n4. Salir" 
+isActivate=True
+
+while isActivate:
+    
+    os.system('clear')
+    print(titulo)
+    print(opciones)
+    OP=int(input('>>'))
+    
+    if (OP==1):
         isAddTeam = True
         while isAddTeam:
             os.system('cls')
@@ -41,8 +41,7 @@ while isActive :
             }
             isAddTeam = bool(input("Desea continuar agregando mas equipos S(Si) o Enter(No)"))
             federacion.update({str(len(federacion)+1).zfill(4):equipo})
-
-    elif (op == 2):
+    if (OP==2):
         for key,valor in federacion.items():
             if valor["estado"]== 0:
                 print("Seleccione el grupo al que quiere ingresar el equipo")
@@ -56,14 +55,9 @@ while isActive :
                     grp=input(">>").upper()
                     grupos.get(grp).append(equipo)
                     federacion.get(key)["estado"]
-                              
-
-
-
-        os.system('pause')
-
-    elif(op == 4):
+    if (OP==4):
         isActive = False
-
+    else :
+        pass
 
 print(json.dumps(federacion,indent=4))
